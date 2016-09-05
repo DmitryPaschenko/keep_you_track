@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Album page</title>
+    <link href="{% static 'css/album.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div id="album-block">
+        <img src="{% static 'images/album_cover.png' %}"/>
+        <div class="info">
+            <div class="title">album</div>
+            <div class="name">Loading...</div>
+            <div class="calculated">Loading...</div>
+        </div>
+        <a class="add" href="#">Add Track</a>
+    </div>
+    <div id="tracks-block">
+        <table>
+            <thead>
+                <tr>
+                    <th><a href="#" class="table-sort" data-sort-by="title" data-sord-dest="">Song</a></th>
+                    <th><a href="#" class="table-sort" data-sort-by="artist" data-sord-dest="">Artist</a></th>
+                    <th><a href="#" class="table-sort" data-sort-by="album" data-sord-dest="">Album</a></th>
+                    <th class="actions"></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="4">
+                        <a id="tracks-prev-page" href="#" data-go-to-page="1">Prev</a>
+                        <a id="tracks-next-page" href="#" data-go-to-page="1">Next</a>
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <div class="title">Add Track</div>
+            <div class="song-form">
+                <div class="song">Song:</div>
+                <input name="song_name"/>
+                {% csrf_token %}
+            </div>
+            <div>
+                <a href="#" class="btn-save-new-track">Save</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="title">Edit Track</div>
+            <div class="song-form">
+                <div class="song">Song:</div>
+                <input name="song_name" required/>
+                <input name="song_id" type="hidden"/>
+                {% csrf_token %}
+            </div>
+            <div>
+                <a href="#" class="btn-update-track">Save</a>
+            </div>
+        </div>
+    </div>
+
+    <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+    <script   src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="{% static 'js/api.js' %}"></script>
+    <script src="{% static 'js/album.js' %}"></script>
+    <script src="{% static 'js/popup.js' %}"></script>
+    <script>
+        $(function() {
+            api.init();
+            album.init({{ album_id }});
+        });
+
+    </script>
+</body>
+</html>

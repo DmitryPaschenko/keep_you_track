@@ -1,0 +1,215 @@
+body {
+    background-color: #181818;
+}
+
+#album-block { position: relative; overflow: hidden; }
+#album-block img { float:left; width: 210px; height: 210px; padding-right: 20px;}
+#album-block .info .title { color: #878787; font-size: 13px; text-transform: uppercase; }
+#album-block .info .name {
+    font-size: 36px;
+    color: #ffffff;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+#album-block .info .calculated { color: #878787; font-size: 13px; margin-top: 10px; }
+#album-block .add {
+    height: 34px;
+    line-height: 34px;
+    text-transform: uppercase;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    position:absolute;
+    bottom:0;
+    right:0;
+    color: #ffffff;
+    width: 110px;
+    border-radius: 15px;
+    background-color: #1bba54;
+}
+
+#tracks-block table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+#tracks-block table th, #tracks-block table td {
+    text-align: left;
+    border: 1px solid #282828;
+    border-left: none;
+    border-right: none;
+    height: 40px;
+}
+#tracks-block table th a { color: #878787; text-decoration: none;}
+#tracks-block table th.actions { width: 155px; }
+#tracks-block table td { color: #ffffff; }
+#tracks-block table td .act-edit {
+    float: left;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url(/static/images/actions.png) center right no-repeat;
+    background-position: 0px 0px;
+    white-space: nowrap;
+}
+
+#tracks-block table td .act-delete {
+    float: left;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url(/static/images/actions.png) center right no-repeat;
+    background-position: -35px 0px;
+    white-space: nowrap;
+}
+
+#tracks-block table .actions a {
+    display: none;
+}
+
+
+#tracks-block table tr:hover .actions a {
+    display: block;
+}
+
+
+#tracks-block table tfoot th { text-align: center; }
+#tracks-block table tfoot #tracks-prev-page, #tracks-block table tfoot #tracks-next-page {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    box-sizing: border-box;
+    width: 590px;
+	height: 200px;
+    background-color: #282828;
+    margin: 15% auto;
+    padding: 28px 38px 23px 38px;
+    border-radius: 5px;
+    position: relative;
+
+}
+
+#addModal .title {
+    color: #ffffff;
+    font-size: 18px;
+}
+
+
+#addModal .song-form {
+    margin-top: 30px;
+}
+
+#addModal .song-form .song {
+    text-transform: uppercase;
+    color: #ffffff;
+    float: left;
+    font-size: 15px;
+    line-height: 16px;
+    padding: 7px 7px 7px 0px;
+}
+
+#addModal .song-form input[name=song_name] {
+    width: 440px;
+    height: 30px;
+    border: 0px;
+    padding: 0px;
+    font-size: 13px;
+    color: #717171;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+#addModal .btn-save-new-track {
+    height: 32px;
+    line-height: 32px;
+    text-transform: uppercase;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    position:absolute;
+    bottom: 28px;
+    left: 50%;
+    margin-left: -32px;
+    color: #ffffff;
+    width: 110px;
+    border-radius: 15px;
+    background-color: #1bba54;
+}
+
+
+#editModal .title {
+    color: #ffffff;
+    font-size: 18px;
+}
+
+
+#editModal .song-form {
+    margin-top: 30px;
+}
+
+#editModal .song-form .song {
+    text-transform: uppercase;
+    color: #ffffff;
+    float: left;
+    font-size: 15px;
+    line-height: 16px;
+    padding: 7px 7px 7px 0px;
+}
+
+#editModal .song-form input[name=song_name] {
+    width: 440px;
+    height: 30px;
+    border: 0px;
+    padding: 0px;
+    font-size: 13px;
+    color: #717171;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+#editModal .btn-update-track {
+    height: 32px;
+    line-height: 32px;
+    text-transform: uppercase;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    position:absolute;
+    bottom: 28px;
+    left: 50%;
+    margin-left: -32px;
+    color: #ffffff;
+    width: 110px;
+    border-radius: 15px;
+    background-color: #1bba54;
+}
+
+
+#editModal .modal-content:after {
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(40, 40, 40, 0);
+	border-left-color: #282828;
+	border-width: 30px;
+	margin-top: -30px;
+}
+
+

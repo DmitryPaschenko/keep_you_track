@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+</head>
+<body>
+    <div style="margin-top: 100px;">
+    {% for album in albums %}
+        <a href="/albums/{{ album.id }}/">{{ album.title }}</a>
+    {% endfor %}
+    </div>
+</body>
+</html>
